@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "imgUrl": "./images/phone01.png"
+    },
+    {
+        "id": "2",
+        "imgUrl": "./images/phone02.png"
+    },
+    {
+        "id": "6",
+        "imgUrl": "./images/phone06.png"
+    },
+    {
+        "id": "7",
+        "imgUrl": "./images/phone07.png"
+    },
+    {
+        "id": "8",
+        "imgUrl": "./images/phone08.png"
+    },
+    {
+        "id": "9",
+        "imgUrl": "./images/phone09.png"
+    },
+    {
+        "id": "10",
+        "imgUrl": "./images/phone10.png"
+    },
+    {
+        "id": "11",
+        "imgUrl": "./images/phone11.png"
+    },
+    {
+        "id": "12",
+        "imgUrl": "./images/phone12.png"
+    },
+    {
+        "id": "14",
+        "imgUrl": "./images/phone14.png"
+    }
+]
