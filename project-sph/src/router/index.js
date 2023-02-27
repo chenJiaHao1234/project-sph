@@ -82,13 +82,19 @@ const routes = [
   {
     name: 'shopCart',
     path: '/shopcart',
-    component: shopCart
+    component: shopCart,
+    meta: {
+      footerShow: true,
+    }
   },
   // 获取订单交易页信息
   {
     name: 'trade',
     path: '/trade',
     component: trade,
+    meta: {
+      footerShow: true,
+    },
     beforeEnter: (to, from, next) => {
       if(from.path == '/shopcart') {
         next()
@@ -102,6 +108,9 @@ const routes = [
     name: 'pay',
     path: '/pay',
     component: pay,
+    meta: {
+      footerShow: true,
+    },
     beforeEnter: (to, from, next) => {
       if(from.path == '/trade') {
         next()
