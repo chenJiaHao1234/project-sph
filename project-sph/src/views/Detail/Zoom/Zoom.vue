@@ -2,9 +2,9 @@
   <div class="spec-preview">
     <img :src="skuImageListInfo.imgUrl" />
     <div class="event"></div>
-    <div class="big">
-      <img :src="skuImageListInfo.imgUrl" />
-    </div>
+    <!-- <div class="big"> -->
+      <!-- <img :src="skuImageListInfo.imgUrl" /> -->
+    <!-- </div> -->
     <div class="mask"></div>
   </div>
 </template>
@@ -54,15 +54,15 @@ export default {
     z-index: 998;
   }
 
-  .mask {
-    width: 50%;
-    height: 50%;
-    background-color: rgba(0, 255, 0, 0.3);
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: none;
-  }
+  // .mask {
+  //   width: 50%;
+  //   height: 50%;
+  //   background-color: rgba(0, 255, 0, 0.3);
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   display: none;
+  // }
 
   .big {
     width: 100%;

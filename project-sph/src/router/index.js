@@ -135,14 +135,22 @@ export default router
 
 router.beforeEach(async (to, from, next) => {
   let token = store.state.login.token
+  let userInfo = store.state.login.userInfo
   // console.log(token);
+  console.log(userInfo.name);
 
   if(token) {
     if(to.path == '/login' || to.path == '/register') {
       next('/home')
     }else {
-      await store.dispatch('userInfo')
-      next()
+      if(userInfo.name) {
+        next()
+      }else {
+        await store.dispatch('userInfo')
+        next()
+      }
+      
+      
     }
   }else {
     if(to.path == '/addcartsuccess' || to.path == '/shopcart') {

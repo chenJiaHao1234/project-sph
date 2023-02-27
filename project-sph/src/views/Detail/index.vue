@@ -106,7 +106,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-
 import ImageList from "./ImageList/ImageList.vue";
 import Zoom from "./Zoom/Zoom.vue";
 export default {
