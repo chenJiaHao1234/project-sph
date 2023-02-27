@@ -136,7 +136,7 @@ router.beforeEach(async (to, from, next) => {
       next()
     }
   }else {
-    if(to.path == '/addCartSuccess' || to.path == '/shopcart' ) {
+    if(to.path == '/addcartsuccess' || to.path == '/shopcart') {
       next('/login')
     }else {
       next()

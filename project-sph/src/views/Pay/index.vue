@@ -132,7 +132,8 @@ export default {
         // 弹框的按钮回调
         beforeClose:(action, instance, done) => {
           console.log(action);
-          if (action == "confirm" && this.code == 200) {
+          // && this.code == 200👇
+          if (action == "confirm") {
             clearInterval(this.timer);
             done();
             // this.$router.push('/xxx')
