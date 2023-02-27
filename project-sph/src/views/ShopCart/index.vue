@@ -92,6 +92,11 @@
 import { mapGetters } from "vuex";
 export default {
   name: "ShopCart",
+  data() {
+    return {
+      timer: null,
+    };
+  },
   mounted() {
     this.getData();
   },
@@ -124,23 +129,25 @@ export default {
     getData() {
       this.$store.dispatch("getCartList");
     },
-    // 修改存储购物车数据的服务器参数
-    // addShoppingCart(skuId, skuNum) {
-    //   this.$store.dispatch('addShoppingCart', {skuId, skuNum})
-    // },
     // 产品数量减一
     async reduceSkuNum(cartInfo) {
       // console.log(cartInfo.skuId, cartInfo.skuNum);
-      try {
-        if (cartInfo.skuNum > 1) {
-          await this.$store.dispatch("addShoppingCart", {
-            skuId: cartInfo.skuId,
-            skuNum: -1,
-          });
-        }
-        this.getData();
-      } catch (error) {
-        alert(error.message);
+      // 👇节流 避免点击过快出现负数
+      if (!this.timer) {
+        this.timer = setTimeout(() => {
+          this.timer = null;
+        }, 500);
+        try {
+            if (cartInfo.skuNum > 1) {
+              await this.$store.dispatch("addShoppingCart", {
+                skuId: cartInfo.skuId,
+                skuNum: -1,
+              });
+            }
+            this.getData();
+          } catch (error) {
+            alert(error.message);
+          }
       }
     },
     // 产品数量加一
@@ -191,8 +198,8 @@ export default {
     async isCheckedAllSelect(event) {
       let checked = event.target.checked ? 1 : 0;
       try {
-        await this.$store.dispatch('isCheckedAllSelect', checked)
-        this.getData()
+        await this.$store.dispatch("isCheckedAllSelect", checked);
+        this.getData();
       } catch (error) {
         alert(error.message);
       }
@@ -209,15 +216,15 @@ export default {
     // 删除选中的全部商品
     async delAllShop() {
       try {
-        await this.$store.dispatch('delAllShop')
-        this.getData()
+        await this.$store.dispatch("delAllShop");
+        this.getData();
       } catch (error) {
         alert(error.message);
       }
     },
     goTrade() {
-      this.$router.push({name: 'trade'})
-    }
+      this.$router.push({ name: "trade" });
+    },
   },
 };
 </script>
